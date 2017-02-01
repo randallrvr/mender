@@ -9,12 +9,18 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wno-int-to-void-pointer-cast
 set(SOURCE_FILES
         main.cpp)
 
+# Add mender files to source files
+set(SOURCE_FILES ${SOURCE_FILES}
+        mender/app/AppBase.cpp  mender/app/AppBase.h
+        mender/app/AppMacOs.cpp mender/app/AppMacOS.h)
+
+
 # Add mm files to source files
 set(SOURCE_FILES ${SOURCE_FILES}
         window_macos.mm
         ext/include/mtlpp/mtlpp.mm)
 
-# Compile mm files as Objective C++
+# Compile mm files as Objective C++ (Not sure if there is a cleaner way to do this for all mm files)
 set_source_files_properties(window_macos.mm            PROPERTIES COMPILE_FLAGS "-x objective-c++")
 set_source_files_properties(ext/include/mtlpp/mtlpp.mm PROPERTIES COMPILE_FLAGS "-x objective-c++")
 
@@ -24,7 +30,7 @@ find_library(METAL_LIBRARY          Metal          REQUIRED)
 find_library(METALKIT_LIBRARY       MetalKit       REQUIRED)
 
 
-include_directories(render ext/include)
+include_directories(mender ext/include)
 
 #if(APPLE)
 #    link_directories(ext/libs-lldb)
