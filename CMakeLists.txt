@@ -7,13 +7,16 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wno-int-to-void-pointer-cast
 
 #set(SOURCE_FILES ${RENDER_FILES}
 set(SOURCE_FILES
-        main.cpp)
+        main.cpp
+        MetalApp.cpp MetalApp.h)
 
 # Add mender files to source files
 set(SOURCE_FILES ${SOURCE_FILES}
         mender/app/AppBase.cpp  mender/app/AppBase.h
-        mender/app/AppMacOs.cpp mender/app/AppMacOS.h)
+        mender/app/AppMacOS.mm mender/app/AppMacOS.h)
 
+# Compile mm files as Objective C++ (Not sure if there is a cleaner way to do this for all mm files)
+set_source_files_properties(mender/app/AppMacOS.mm PROPERTIES COMPILE_FLAGS "-x objective-c++")
 
 # Add mm files to source files
 set(SOURCE_FILES ${SOURCE_FILES}

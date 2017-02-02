@@ -1,5 +1,10 @@
 #include <mtlpp/mtlpp.hpp>
+
 #include "window.hpp"
+#include "MetalApp.h"
+
+#include <vector>
+#include <string>
 
 mtlpp::Device              g_device;
 mtlpp::CommandQueue        g_commandQueue;
@@ -33,8 +38,9 @@ void Render(const Window& win)
     commandBuffer.WaitUntilCompleted();
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+/*
     const char shadersSrc[] = R"(
         #include <metal_stdlib>
         using namespace metal;
@@ -91,6 +97,18 @@ int main()
 
 	// Run
     Window::Run();
+*/
+
+	std::vector<std::string> args;
+	for(int i = 1; i < argc; i++)
+	{
+		args.push_back(std::string(argv[i]));
+	}
+
+	MetalApp metalApp("Metal App", 1280, 720, args);
+//	metalApp.run();
+
+	return 0;
 
     return 0;
 }
