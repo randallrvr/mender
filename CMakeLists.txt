@@ -20,7 +20,7 @@ set_source_files_properties(mender/app/AppMacOS.mm PROPERTIES COMPILE_FLAGS "-x 
 
 # Add mm files to source files
 set(SOURCE_FILES ${SOURCE_FILES}
-        window_macos.mm
+#         window_macos.mm
         ext/include/mtlpp/mtlpp.mm)
 
 # Compile mm files as Objective C++ (Not sure if there is a cleaner way to do this for all mm files)

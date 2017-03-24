@@ -22,7 +22,7 @@ using namespace std;
 namespace render
 {
 
-enum class Key : int
+enum class Key
 {
 
 	NUM_0        = 0,//= GLFW_KEY_0,
@@ -223,7 +223,7 @@ public:
 	virtual bool  mousePressed(MouseButton button) const = 0;
 	virtual bool mouseReleased(MouseButton button) const = 0;
 };
-//End class AppBase
+// End class AppBase
 
 };
-//End namespace render
+// End namespace render

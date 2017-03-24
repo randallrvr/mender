@@ -126,10 +126,7 @@ void AppBase::run()
 	{
 	//	timer->begin();
 		{
-			system_poll();
-			system_update();
-			step();
-			swap();
+			AppBase::step();
 		}
 	//	timer->end();
 	//	timer->update();
@@ -142,8 +139,11 @@ void AppBase::run()
 //******************************************************************************
 void AppBase::step()
 {
+	system_poll();
+	system_update();
 	update();
 	render();	//call virtual functions (implemented in subclass)
+	AppBase::swap();
 }
 //******************************************************************************
 //Resize OpenGL*****************************************************************

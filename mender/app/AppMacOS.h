@@ -23,7 +23,7 @@ using namespace std;
 namespace render
 {
 
-class AppMacOS //: public AppBase
+class AppMacOS : public AppBase
 {
 private:
 //	GLFWwindow *window;
@@ -31,24 +31,17 @@ private:
 private:
 
 	// Metal View Class
-	class MtlView : public ns::Object
+	class MetalHandle : public ns::Object
 	{
 	public:
-		MtlView() { }
-		MtlView(const ns::Handle& handle) : ns::Object(handle) { }
+		MetalHandle() { }
+		MetalHandle(const ns::Handle& handle) : ns::Object(handle) { }
 	};
 
-	MtlView mtlView;
+	MetalHandle metalHandle;
 
 	// Create Metal device
 	mtlpp::Device mtlDevice;
-
-//	class WindowViewController : NSViewController<MTKViewDelegate>
-//	{
-//	@public void (*m_render)(const Window&);	// Render function
-//	@public const render::AppMacOS::Window* m_window;				// Window
-//	}
-
 
 public:
 	// Constructor
@@ -66,15 +59,29 @@ protected:
 	void system_title(const string &title);
 	void system_update();
 
-//	bool keyDown(Key key) const;
-//	bool keyUp(Key key) const;
-//	bool keyPressed(Key key) const;
-//	bool keyReleased(Key key) const;
-//
-//	bool mouseDown(MouseButton button) const;
-//	bool mouseUp(MouseButton button) const;
-//	bool mousePressed(MouseButton button) const;
-//	bool mouseReleased(MouseButton button) const;
+	bool keyDown(Key key) const;
+	bool keyUp(Key key) const;
+	bool keyPressed(Key key) const;
+	bool keyReleased(Key key) const;
+
+	bool mouseDown(MouseButton button) const;
+	bool mouseUp(MouseButton button) const;
+	bool mousePressed(MouseButton button) const;
+	bool mouseReleased(MouseButton button) const;
+
+public:
+
+	// Overload run for MacOS
+	void run();
+
+	void setRender(void (*render)(const AppMacOS &));
+
+
+	mtlpp::Drawable             GetDrawable()             const;
+	mtlpp::RenderPassDescriptor GetRenderPassDescriptor() const;
+
+
+
 };
 // End class AppMacOS
 
