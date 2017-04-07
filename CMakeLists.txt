@@ -24,7 +24,7 @@ set(SOURCE_FILES ${SOURCE_FILES}
         ext/include/mtlpp/mtlpp.mm)
 
 # Compile mm files as Objective C++ (Not sure if there is a cleaner way to do this for all mm files)
-set_source_files_properties(window_macos.mm            PROPERTIES COMPILE_FLAGS "-x objective-c++")
+# set_source_files_properties(window_macos.mm            PROPERTIES COMPILE_FLAGS "-x objective-c++")
 set_source_files_properties(ext/include/mtlpp/mtlpp.mm PROPERTIES COMPILE_FLAGS "-x objective-c++")
 
 

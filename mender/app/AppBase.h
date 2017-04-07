@@ -9,9 +9,6 @@
 //#include <mender/time.h>
 //#include <mender/gl.h>
 
-//GLFW Include
-//#include <GLFW/glfw3.h>
-
 //Standard Library Includes
 #include <iostream>
 #include <vector>

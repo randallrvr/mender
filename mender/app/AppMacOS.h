@@ -26,9 +26,6 @@ namespace render
 class AppMacOS : public AppBase
 {
 private:
-//	GLFWwindow *window;
-
-private:
 
 	// Metal View Class
 	class MetalHandle : public ns::Object

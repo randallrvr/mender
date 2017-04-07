@@ -5,7 +5,6 @@
 //Header include
 #include "MetalApp.h"
 
-
 //Render Library Includes
 
 //Standard Library Includes
